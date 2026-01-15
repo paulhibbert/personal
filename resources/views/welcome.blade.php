@@ -25,6 +25,12 @@
         <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
+                    <a
+                        href="{{ route('topics.index') }}"
+                        class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+                    >
+                        Topics
+                    </a>
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
@@ -55,11 +61,11 @@
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
                 <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-es-lg rounded-ee-lg lg:rounded-ss-lg lg:rounded-ee-none">
                     <h1 class="text-lg mb-4 font-bold">Surrey, GB {{ now()->toDateTimeString() }}</h1>
-                    <livewire:sunset lazy/>
-                    <livewire:weather lazy/>
-                    <livewire:holidays lazy/>
-                    <livewire:onthisday lazy/>
-                    <livewire:current-carbon lazy/>
+                    <livewire:sunset defer/>
+                    <livewire:weather defer/>
+                    <livewire:holidays defer/>
+                    <livewire:onthisday defer/>
+                    <livewire:current-carbon defer/>
                 </div>
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ms-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-e-lg! aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">
                     {{-- Laravel Logo --}}

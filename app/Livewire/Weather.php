@@ -21,6 +21,11 @@ class Weather extends Component
         HTML;
     }
 
+    protected function doSomething()
+    {
+        $this->getId();
+    }   
+
     protected function fetchLatestWeatherObservation(): string
     {
         try {

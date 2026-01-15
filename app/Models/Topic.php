@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Sushi\Sushi;
+use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Topic extends Model
 {
@@ -13,8 +15,17 @@ class Topic extends Model
         ['id' => 0, 'href' => 'places', 'name' => 'Places Visited'],
         ['id' => 1, 'href' => 'genealogy', 'name' => 'Family History'],
         ['id' => 2, 'href' => 'code', 'name' => 'Programming'],
-        ['id' => 3, 'href' => 'music', 'name' => 'Music'],
-        ['id' => 4, 'href' => 'books', 'name' => 'Notable Books'],
-        ['id' => 5, 'href' => 'art', 'name' => 'Notable Artworks'],
+        ['id' => 3, 'href' => 'learning', 'name' => 'Learning'],
     ];
+
+    public static function getArticlesForTopic(string $topicHref): array
+    {
+        $articles = [];
+        $files = Storage::disk('docs')->files($topicHref);
+        foreach ($files as $file) {
+            $articles[] = Str::of($file)->between('/', '.')->ucfirst()->toString();
+        }
+
+        return $articles;
+    }
 }

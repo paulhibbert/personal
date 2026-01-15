@@ -10,6 +10,7 @@ Founded by the Romans, Granada later became the last stronghold of the Muslim Al
 
 ## Key Attractions
 
+
 ### The Alhambra
 
 A magnificent palace and fortress complex featuring intricate Islamic architecture, stunning courtyards, and breathtaking views of the city and mountains.

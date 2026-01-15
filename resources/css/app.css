@@ -45,6 +45,10 @@
     ::file-selector-button {
         border-color: var(--color-gray-200, currentColor);
     }
+    .external-link {
+        text-decoration: underline;
+        color:cornflowerblue;
+    }
 }
 
 [data-flux-field]:not(ui-radio, ui-checkbox) {

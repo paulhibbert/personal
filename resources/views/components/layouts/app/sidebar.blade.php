@@ -34,13 +34,15 @@
             @endauth
             @if (request()->routeIs('topics.index'))
                 <flux:sidebar.nav>
-                    <flux:sidebar.group :heading="__('Topics')">
-                        @foreach (\App\Models\Topic::all() as $topic)
-                            <flux:sidebar.item icon="tag" href="/topics/{{$topic->href}}" class="topic_link_{{ $topic->href }}" >
-                                {{ $topic->name }}
+                    @foreach (App\Models\Topic::all() as $topic)
+                        <flux:sidebar.group heading="{{ $topic->name }}" :expandable="true" :expanded="true" >
+                            @foreach (App\Models\Topic::getArticlesForTopic($topic->href) as $article)
+                            <flux:sidebar.item icon="tag" href="#" class="topic_link_{{ strtolower($article) }}" >
+                                {{ $article }}
                             </flux:sidebar.item>
-                        @endforeach
-                    </flux:sidebar.group>
+                            @endforeach
+                        </flux:sidebar.group>
+                    @endforeach
                 </flux:sidebar.nav>
             @endif
         </flux:sidebar>
