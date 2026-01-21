@@ -37,7 +37,7 @@
                     @foreach (App\Models\Topic::all() as $topic)
                         <flux:sidebar.group heading="{{ $topic->name }}" :expandable="true" :expanded="true" >
                             @foreach (App\Models\Topic::getArticlesForTopic($topic->href) as $article)
-                            <flux:sidebar.item icon="tag" href="#" class="topic_link_{{ strtolower($article) }}" >
+                            <flux:sidebar.item icon="tag" href="#" class="topic_link topic_{{ $topic->href}} article_{{ strtolower($article) }}" >
                                 {{ $article }}
                             </flux:sidebar.item>
                             @endforeach
@@ -107,5 +107,19 @@
         {{ $slot }}
 
         @fluxScripts
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const topicLinks = document.querySelectorAll('.topic_link');
+                topicLinks.forEach(function(link) {
+                    link.addEventListener('click', function(event) {
+                        event.preventDefault();
+                        let articleName = link.classList[link.classList.length-1].replace('article_', '').replaceAll('_', ' '); // Extract article name from class
+                        let topic = link.classList[link.classList.length-2].replace('topic_', '').replaceAll('_', ' '); // Extract topic name from class
+                        Livewire.dispatch('topic-clicked', { path: topic, name: articleName});
+                    });
+                });
+            });
+        </script>
     </body>
 </html>

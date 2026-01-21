@@ -14,7 +14,7 @@ Reportedly 125 Hours of content from beginner to advanced, like all the free cou
 
 - [Getting Started with French 3](https://www.open.edu/openlearn/languages/getting-started-french-3/content-section-overview) (Level 1) 6 Hours
 
-- [Food and Drink](https://www.open.edu/openlearn/languages/french/beginners-french-a-trip-avignon/content-section-0?active-tab=description-tab) (Level 1) 5 Hours
+- [Food and Drink](https://www.open.edu/openlearn/languages/french/beginners-french-food-and-drink/content-section-0?active-tab=description-tab) (Level 1) 5 Hours
 
 - [A trip to Avignon](https://www.open.edu/openlearn/languages/french/beginners-french-a-trip-avignon/content-section-0?active-tab=description-tab) (Level 1) 15 Hours
 

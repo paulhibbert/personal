@@ -23,7 +23,8 @@ class CurrentCarbon extends Component
             $intensity = Cache::remember('current_carbon_intensity', now()->addMinutes(15), function () {
                 return Http::get('https://api.carbonintensity.org.uk/intensity')->json()['data'][0]['intensity'];
             });
-            return "Current carbon intensity of GB energy system is {$intensity['index']} at {$intensity['actual']} gCO2/kWh.";
+            $actual = $intensity['actual'] ?? 'N/A';
+            return "Current carbon intensity of GB energy system is {$intensity['index']} at {$actual} gCO2/kWh.";
         } catch (\Throwable $e) {
             logger()->error('Error fetching current carbon intensity data', [
                 'exception' => $e,

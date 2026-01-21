@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -11,19 +12,22 @@ use League\CommonMark\Extension\Attributes\AttributesExtension;
 use League\CommonMark\Extension\CommonMark\Node\Block\ListBlock;
 use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension;
+use Livewire\Attributes\On;
 
 /**
  * This is a Livewire component that displays a random article from the 'docs' storage disk.
  * It uses the CommonMark library to convert Markdown content to HTML,
- * Ideally we want to be able to click on one of the menu items in the sidebar and load the indicated article.
+ * If a sidebar link is clicked, it loads the corresponding article instead.
  */
-class RandomArticle extends Component
+class LoadArticle extends Component
 {
+    public $articlePath = '';
+
     public function render()
     {
         return <<<'BLADE'
             <div>
-                {!! $this->fetchRandomArticle() !!}
+                {!! $this->fetchArticle() !!}
             </div>
         BLADE;
     }
@@ -37,14 +41,21 @@ class RandomArticle extends Component
         BLADE;
     }
 
-    protected function fetchRandomArticle(): string
+    #[On('topic-clicked')]
+    public function loadSelectedArticle(string $path, string $name)
+    {
+        $this->articlePath = "{$path}/{$name}.md";
+        $this->render();
+    }
+
+    protected function fetchArticle(): string
     {
         $files = Storage::disk('docs')->allFiles();
         $config = [
             'external_link' => [
                 'internal_hosts' => 'www.example.com', // TODO: change to your domain
                 'open_in_new_window' => true,
-                'html_class' => 'external-link',
+                'html_class' => 'underline text-blue-600 hover:text-blue-800 visited:text-purple-600',
                 'nofollow' => '',
                 'noopener' => 'external',
                 'noreferrer' => 'external',
@@ -68,9 +79,10 @@ class RandomArticle extends Component
         $externalLinkExtension = new ExternalLinkExtension();
         $defaultAttributesExtension = new DefaultAttributesExtension();
         if (count($files) > 0) {
-            $path = Arr::random($files);
+            $path = empty($this->articlePath) ? Arr::random($files) : $this->articlePath;
             $content = Storage::disk('docs')->get($path);
-            return Str::markdown($content, $config, [$attributesExtension, $externalLinkExtension, $defaultAttributesExtension]);
+            $callable = fn() => 'Error loading article';
+            return rescue(fn() => Str::markdown($content, $config, [$attributesExtension, $externalLinkExtension, $defaultAttributesExtension]), $callable, false);
         }
         return '';
     }
