@@ -63,10 +63,11 @@
         var w;
         var started = 0;
         /* 
-        * Replace the following with any combination or length of potential characters to use in your passwords.
-        * I have chosen not to use capital O and lower case l as these can be confused with zero and 1 in my experience.
-        */
-        var alphanum = "0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ$&()[]{}abcdefghijkmnopqrstuvwxyz@>:;^!+-~=_#01234567890abcdefghijkmnopqrstuvwxyz";
+         * Replace the following with any combination or length of potential characters to use in your passwords.
+         * I have chosen not to use capital O and lower case l as these can be confused with zero and 1 in my experience.
+         */
+        var alphanum =
+            "0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ$&()[]{}abcdefghijkmnopqrstuvwxyz@>:;^!+-~=_#01234567890abcdefghijkmnopqrstuvwxyz";
 
         function get_word() {
             random_word = alphanum;
@@ -78,7 +79,7 @@
             if (started) {
                 var ele = document.getElementsByClassName("box");
                 for (var i = 0; i < ele.length; i++) {
-                    ele[i].style.backgroundColor = "LightCyan";						//reset the colours in case multiple runs
+                    ele[i].style.backgroundColor = "LightCyan"; //reset the colours in case multiple runs
                     ele[i].style.color = "#404040";
                 }
                 var pLen = document.getElementById("pLength").value;
@@ -86,13 +87,15 @@
                 var chosen = "";
                 var idx = 0;
                 for (var i = 0; i < pLen; i++) {
-                    idx = Math.floor((Math.random() * scrambled.length));           //generate random index into the near alphanumeric string
-                    chosen = scrambled.substr(idx, 1);                              //retrieve it
-                    document.getElementById(idx).style.backgroundColor = "green";   //display that it has been used (can use more than once)
+                    idx = Math.floor((Math.random() * scrambled
+                    .length)); //generate random index into the near alphanumeric string
+                    chosen = scrambled.substr(idx, 1); //retrieve it
+                    document.getElementById(idx).style.backgroundColor =
+                    "green"; //display that it has been used (can use more than once)
                     document.getElementById(idx).style.color = "white";
-                    out += chosen;                                                  //add to the output string
+                    out += chosen; //add to the output string
                 }
-                document.getElementById("output").innerHTML = out;                  //display the final randomized string
+                document.getElementById("output").innerHTML = out; //display the final randomized string
             }
         }
 
@@ -104,43 +107,44 @@
             for (var i = 0; i < letters; i++) {
                 out += "<li id='" + i + "' class='box'><p>" + scrambled.charAt(i) + "</p></li>";
             }
-            list.innerHTML = out;                                                   //replace the whole list of boxes with newly minted ones
+            list.innerHTML = out; //replace the whole list of boxes with newly minted ones
         }
 
         function scramble(inStr, chrs) {
-            var outStr = "";							    //initialise an output String variable
+            var outStr = ""; //initialise an output String variable
             var in_idx = new Array(chrs);
-            for (var j = 0; j < in_idx.length; j++)			//initialise an array with 0 up to the length of the string (e.g. 0,1,2,3,4,5,6)
+            for (var j = 0; j < in_idx
+                .length; j++) //initialise an array with 0 up to the length of the string (e.g. 0,1,2,3,4,5,6)
             {
                 in_idx[j] = j;
             }
-            var out_idx = new Array();						//initialise an array for the jumbled index
+            var out_idx = new Array(); //initialise an array for the jumbled index
             while (true) {
-                var new_idx = Math.floor((Math.random() * in_idx.length));	//generate a new random index into the string
-                var unique = 1;							    //assume it is unique
+                var new_idx = Math.floor((Math.random() * in_idx.length)); //generate a new random index into the string
+                var unique = 1; //assume it is unique
                 for (var k = 0; k < out_idx.length; k++) {
-                    if (in_idx[new_idx] == out_idx[k])		// check to see if that idx is already there
+                    if (in_idx[new_idx] == out_idx[k]) // check to see if that idx is already there
                     {
-                        unique = 0;					        //if already have it then say so, cannot use it twice
+                        unique = 0; //if already have it then say so, cannot use it twice
                     }
                 }
                 if (unique == 1) {
-                    out_idx.push(in_idx[new_idx]);			//if still unique then we can use it.
+                    out_idx.push(in_idx[new_idx]); //if still unique then we can use it.
                     if (in_idx.length == 1) {
-                        break;						        //if that was the last letter to use then exit this forever loop
+                        break; //if that was the last letter to use then exit this forever loop
                     }
-                    in_idx.splice(new_idx, 1);				//otherwise remove idx from the in-array so cannot use it again
+                    in_idx.splice(new_idx, 1); //otherwise remove idx from the in-array so cannot use it again
                 }
             }
 
-            for (var i = 0; i < out_idx.length; i++)		// output the string based on the scrambled order.
+            for (var i = 0; i < out_idx.length; i++) // output the string based on the scrambled order.
             {
                 outStr += inStr.charAt(out_idx[i]);
             }
-            return outStr;							        // return the scrambled string
+            return outStr; // return the scrambled string
         }
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('input[id="pLength"]').onchange = changeEventHandler;
         }, false);
 
@@ -166,8 +170,10 @@
 <body>
     <div class="container">
         <h3>Generate Password from Scrambled Input</h3>
-        <p>Click start to get a jumbled up set of mostly alphanumeric characters, and then scramble them as many times as
-            you like. When finished click on generate to create a password as many times as you like. Change the length to
+        <p>Click start to get a jumbled up set of mostly alphanumeric characters, and then scramble them as many times
+            as
+            you like. When finished click on generate to create a password as many times as you like. Change the length
+            to
             regenerate.</p>
         <p>There are no doubt better ways to do this, but this is mine.</p>
         <ul id="sortable">

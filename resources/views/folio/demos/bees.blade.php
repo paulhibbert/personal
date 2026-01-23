@@ -9,6 +9,7 @@
         html {
             overflow: hidden;
         }
+
         body {
             font-family: "BlinkMacSystemFont", -apple-system, "Segoe UI", "Roboto", "Helvetica", "Arial", "Droid Sans", sans-serif;
             font-size: 2vw;
@@ -112,73 +113,69 @@
             setCanvasSize(intViewportWidth, intViewportHeight);
             context.drawImage(background, 0, 0);
         }
+
         function setCanvasSize(w, h) {
             let cv = document.getElementById("cv");
             cv.width = w;
             cv.height = h;
         }
+
         function initBees() {
-        	for (let i=0;i<bees;i++)
-		{ 
-			x[i] = intViewportWidth / 2;
-			y[i] = intViewportHeight / 2;
-		}
+            for (let i = 0; i < bees; i++) {
+                x[i] = intViewportWidth / 2;
+                y[i] = intViewportHeight / 2;
+            }
         }
         window.onload = load;
         window.onresize = resize;
-        
+
         (function() {
-  		var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-  		window.requestAnimationFrame = requestAnimationFrame;
-	})();
-        
-	function draw()
-	{
-		context.clearRect(0,0,canvas.width,canvas.height);
-	        context.drawImage(background, 0, 0);
-	        for (let i=0;i<bees;i++)
-		{ 
-			context.drawImage(bee,x[i],y[i]);
-		}
-		requestAnimationFrame(draw);
-		get_next_xy()
-	}
-	
-	function get_next_xy() {
-		let xdiff;
-		let ydiff;
-	        for (let i=0;i<bees;i++)
-		{ 
-			xdiff = Math.random();
-			ydiff = Math.random();
-			if (xdiff < 0.34) {
-				x[i] += increment;
-				if (x[i] > (intViewportWidth - beeWidth)) {
-					x[i] -= increment;
-				}
-			}
-			else if (xdiff > 0.66) {
-				x[i] -= increment;
-				if (x[i] < 0) {
-					x[i] += increment;
-				}			}
-			if (ydiff < 0.34) {
-				y[i] += increment;
-				if (y[i] > (intViewportHeight - beeHeight)) {
-					y[i] -= increment;
-				}
-			}
-			else if (ydiff > 0.66) {
-				y[i] -= increment;
-				if (y[i] < 0) {
-					y[i] += increment;
-				}			
-			}
-		}
-	}
-	
-	requestAnimationFrame(draw);        
-        
+            var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+            window.requestAnimationFrame = requestAnimationFrame;
+        })();
+
+        function draw() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.drawImage(background, 0, 0);
+            for (let i = 0; i < bees; i++) {
+                context.drawImage(bee, x[i], y[i]);
+            }
+            requestAnimationFrame(draw);
+            get_next_xy()
+        }
+
+        function get_next_xy() {
+            let xdiff;
+            let ydiff;
+            for (let i = 0; i < bees; i++) {
+                xdiff = Math.random();
+                ydiff = Math.random();
+                if (xdiff < 0.34) {
+                    x[i] += increment;
+                    if (x[i] > (intViewportWidth - beeWidth)) {
+                        x[i] -= increment;
+                    }
+                } else if (xdiff > 0.66) {
+                    x[i] -= increment;
+                    if (x[i] < 0) {
+                        x[i] += increment;
+                    }
+                }
+                if (ydiff < 0.34) {
+                    y[i] += increment;
+                    if (y[i] > (intViewportHeight - beeHeight)) {
+                        y[i] -= increment;
+                    }
+                } else if (ydiff > 0.66) {
+                    y[i] -= increment;
+                    if (y[i] < 0) {
+                        y[i] += increment;
+                    }
+                }
+            }
+        }
+
+        requestAnimationFrame(draw);
     </script>
 </body>

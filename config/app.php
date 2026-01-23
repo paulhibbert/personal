@@ -127,4 +127,9 @@ return [
         'latitude' => env('APP_LOCATION_LATITUDE', '51.341158'),
         'longitude' => env('APP_LOCATION_LONGITUDE', '-0.736321'),
     ],
+
+    'features' => [
+        'registration' => env('APP_FEATURE_REGISTRATION', false),
+        'login' => env('APP_FEATURE_LOGIN', false),
+    ],
 ];

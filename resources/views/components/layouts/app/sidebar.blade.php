@@ -5,46 +5,20 @@
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">
         <flux:sidebar sticky collapsible="mobile" class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
+            <flux:sidebar.nav>
+                <flux:sidebar.group :heading="__('Platform')" class="grid">
+                    <flux:sidebar.item icon="cube" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
+                        {{ 'Dashboard' }}
+                    </flux:sidebar.item>
+                    <flux:sidebar.item icon="home" :href="route('home')" :current="request()->routeIs('home')" wire:navigate>
+                        {{ 'Home' }}
+                    </flux:sidebar.item>
+                </flux:sidebar.group>
+            </flux:sidebar.nav>
+            <flux:spacer />
             @auth
-                <flux:sidebar.header>
-                    <x-app-logo :sidebar="true" href="{{ route('dashboard') }}" wire:navigate />
-                    <flux:sidebar.collapse class="lg:hidden" />
-                </flux:sidebar.header>
-
-                <flux:sidebar.nav>
-                    <flux:sidebar.group :heading="__('Platform')" class="grid">
-                        <flux:sidebar.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>
-                            {{ 'Dashboard' }}
-                        </flux:sidebar.item>
-                    </flux:sidebar.group>
-                </flux:sidebar.nav>
-                <flux:spacer />
-
-                <flux:sidebar.nav>
-                    <flux:sidebar.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
-                        {{ 'Repository' }}
-                    </flux:sidebar.item>
-
-                    <flux:sidebar.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
-                        {{ 'Documentation' }}
-                    </flux:sidebar.item>
-                </flux:sidebar.nav>
-
                 <x-desktop-user-menu class="hidden lg:block" :name="auth()->user()->name" />
             @endauth
-            @if (request()->routeIs('topics.index'))
-                <flux:sidebar.nav>
-                    @foreach (App\Models\Topic::all() as $topic)
-                        <flux:sidebar.group heading="{{ $topic->name }}" :expandable="true" :expanded="true" >
-                            @foreach (App\Models\Topic::getArticlesForTopic($topic->href) as $article)
-                            <flux:sidebar.item icon="tag" href="#" class="topic_link topic_{{ $topic->href}} article_{{ strtolower($article) }}" >
-                                {{ $article }}
-                            </flux:sidebar.item>
-                            @endforeach
-                        </flux:sidebar.group>
-                    @endforeach
-                </flux:sidebar.nav>
-            @endif
         </flux:sidebar>
 
         @auth
@@ -108,18 +82,5 @@
 
         @fluxScripts
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const topicLinks = document.querySelectorAll('.topic_link');
-                topicLinks.forEach(function(link) {
-                    link.addEventListener('click', function(event) {
-                        event.preventDefault();
-                        let articleName = link.classList[link.classList.length-1].replace('article_', '').replaceAll('_', ' '); // Extract article name from class
-                        let topic = link.classList[link.classList.length-2].replace('topic_', '').replaceAll('_', ' '); // Extract topic name from class
-                        Livewire.dispatch('topic-clicked', { path: topic, name: articleName});
-                    });
-                });
-            });
-        </script>
     </body>
 </html>
