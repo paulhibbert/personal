@@ -2,7 +2,7 @@
 <html>
 
 <head>
-
+    <title>Drag and Drop Puzzle</title>
     <style type="text/css">
         h1.question {
             color: red;
