@@ -5,7 +5,9 @@ namespace App\ValueObjects;
 final class YearPrefixedString
 {
     private string $raw;
+
     private int $year;
+
     private string $content;
 
     private function __construct(string $raw, int $year, string $content)

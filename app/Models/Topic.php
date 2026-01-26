@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Sushi\Sushi;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Sushi\Sushi;
 
 class Topic extends Model
 {

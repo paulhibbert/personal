@@ -2,17 +2,16 @@
 
 namespace App\Livewire;
 
-use Illuminate\Support\Facades\Log;
-use Livewire\Component;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
+use Illuminate\Support\Str;
 use League\CommonMark\Extension\Attributes\AttributesExtension;
+use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
 use League\CommonMark\Extension\CommonMark\Node\Block\ListBlock;
-use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
 use Livewire\Attributes\On;
+use Livewire\Component;
 
 /**
  * This is a Livewire component that displays a random article from the 'docs' storage disk.
@@ -75,15 +74,17 @@ class LoadArticle extends Component
                 ],
             ],
         ];
-        $attributesExtension = new AttributesExtension();
-        $externalLinkExtension = new ExternalLinkExtension();
-        $defaultAttributesExtension = new DefaultAttributesExtension();
+        $attributesExtension = new AttributesExtension;
+        $externalLinkExtension = new ExternalLinkExtension;
+        $defaultAttributesExtension = new DefaultAttributesExtension;
         if (count($files) > 0) {
             $path = empty($this->articlePath) ? Arr::random($files) : $this->articlePath;
             $content = Storage::disk('docs')->get($path);
-            $callable = fn() => 'Error loading article';
-            return rescue(fn() => Str::markdown($content, $config, [$attributesExtension, $externalLinkExtension, $defaultAttributesExtension]), $callable, false);
+            $callable = fn () => 'Error loading article';
+
+            return rescue(fn () => Str::markdown($content, $config, [$attributesExtension, $externalLinkExtension, $defaultAttributesExtension]), $callable, false);
         }
+
         return '';
     }
 }

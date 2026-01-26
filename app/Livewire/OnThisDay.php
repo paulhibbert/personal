@@ -2,12 +2,12 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
+use App\ValueObjects\YearPrefixedString;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
-use App\ValueObjects\YearPrefixedString;
+use Illuminate\Support\Facades\Log;
+use Livewire\Component;
 
 class OnThisDay extends Component
 {
@@ -22,15 +22,15 @@ class OnThisDay extends Component
 
     protected function fetchHeadline(): string
     {
-        $now = new CarbonImmutable();
+        $now = new CarbonImmutable;
         $month = strtolower($now->format('F'));
         $dayOfMonth = $now->format('j');
         $url = "http://news.bbc.co.uk/onthisday/low/dates/stories/{$month}/{$dayOfMonth}/default.stm";
         try {
-            $onThisDayContent = Cache::remember('onthisday', $now->tomorrow(), fn() => file_get_contents($url));
-            $dom = new \DOMDocument();
+            $onThisDayContent = Cache::remember('onthisday', $now->tomorrow(), fn () => file_get_contents($url));
+            $dom = new \DOMDocument;
             @$dom->loadHTML($onThisDayContent);
-            $links  = $dom->getElementsByTagName('a');
+            $links = $dom->getElementsByTagName('a');
             $usableLinks = [];
             foreach ($links as $link) {
                 $href = $link->getAttribute('href');
@@ -44,12 +44,14 @@ class OnThisDay extends Component
             }
             $randomSelectedHeadline = Arr::random($usableLinks);
             $today = $now->format('jS F');
+
             return "On this day, $today in {$randomSelectedHeadline}";
         } catch (\Throwable $e) {
             Log::error('Error fetching On This Day data', [
                 'exception' => $e,
             ]);
+
             return 'Unable to fetch On This Day data';
-        }   
+        }
     }
 }

@@ -2,13 +2,12 @@
 
 namespace App\Livewire;
 
-use Throwable;
-use Livewire\Component;
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Uri;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Uri;
+use Livewire\Component;
+use Throwable;
 
 class Sunset extends Component
 {
@@ -26,16 +25,16 @@ class Sunset extends Component
         try {
             $location = config('app.location');
             $uri = Uri::of('https://api.sunrise-sunset.org/json')
-                    ->withQuery([
-                        'lat'=> $location['latitude'],
-                        'lng'=> $location['longitude'],
-                        'timezone'=> 'UTC',
-                        'date'=> 'today',
-                    ]);
-            $now = new CarbonImmutable();
-            $sunriseSunset = Cache::remember('sunset', $now->tomorrow(), fn() => Http::get($uri)->json());
+                ->withQuery([
+                    'lat' => $location['latitude'],
+                    'lng' => $location['longitude'],
+                    'timezone' => 'UTC',
+                    'date' => 'today',
+                ]);
+            $now = new CarbonImmutable;
+            $sunriseSunset = Cache::remember('sunset', $now->tomorrow(), fn () => Http::get($uri)->json());
             $sunset = CarbonImmutable::parse($sunriseSunset['results']['sunset']);
-            $sunsetDifference = (int) round(abs($now->diffInMinutes($sunset)),0);
+            $sunsetDifference = (int) round(abs($now->diffInMinutes($sunset)), 0);
             $sunSetStatus = match (true) {
                 $now->lessThan($sunset) => "Sunset will be in {$sunsetDifference} minutes at {$sunset->format('H:i')}",
                 $now->greaterThan($sunset) => "Sunset was {$sunsetDifference} minutes ago at {$sunset->format('H:i')}",

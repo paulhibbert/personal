@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Http;
+use Livewire\Component;
 
 class CurrentCarbon extends Component
 {
@@ -24,11 +24,13 @@ class CurrentCarbon extends Component
                 return Http::get('https://api.carbonintensity.org.uk/intensity')->json()['data'][0]['intensity'];
             });
             $actual = $intensity['actual'] ?? 'N/A';
+
             return "Current carbon intensity of GB energy system is {$intensity['index']} at {$actual} gCO2/kWh.";
         } catch (\Throwable $e) {
             logger()->error('Error fetching current carbon intensity data', [
                 'exception' => $e,
             ]);
+
             return 'Unable to fetch current carbon intensity data';
         }
     }

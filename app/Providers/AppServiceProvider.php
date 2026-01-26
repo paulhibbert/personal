@@ -21,7 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blade::if('feature', function ($feature) {
-            $class = "App\\Features\\" . ucfirst($feature);
+            $class = 'App\\Features\\'.ucfirst($feature);
+
             return app($class)();
         });
     }
