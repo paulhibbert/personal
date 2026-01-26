@@ -29,6 +29,11 @@ name('demos.index');
                 {{ 'Genealogy blog 2014' }}
             </flux:sidebar.item>
         </flux:sidebar.group>
+        <flux:sidebar.group :heading="__('Livewire')" class="grid">
+            <flux:sidebar.item icon="tag" href="/demos/weather-demo" target="demoFrame">
+                {{ 'Weather Demo' }}
+            </flux:sidebar.item>
+        </flux:sidebar.group>
     </x:slot>
 
     <flux:main>

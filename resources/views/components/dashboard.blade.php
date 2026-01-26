@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Process;
 use App\Models\Topic;
+use Illuminate\Support\Str;
 
 new class extends Component
 {
@@ -55,6 +56,14 @@ new class extends Component
             if (str_ends_with($file, '.blade.php') && $file !== 'index.blade.php') {
                 $filePath = $path.DIRECTORY_SEPARATOR.$file;
                 $content = file_get_contents($filePath);
+                if (Str::startsWith($content, '<x-layouts')) {
+                    // if the file starts with a layout component, find title attribute
+                    preg_match('/<x-layouts\.[^>]+title="([^"]+)"[^>]*>/', $content, $matches);
+                    if (isset($matches[1])) {
+                        $demos[] = $matches[1];
+                    }
+                    continue;
+                }
                 @$dom->loadHTML($content);
                 $titleNodes = $dom->getElementsByTagName('title');
                 $demos[] = $titleNodes->length > 0 ? $titleNodes->item(0)->textContent : 'Untitled';
