@@ -124,8 +124,9 @@ return [
     ],
 
     'location' => [
-        'latitude' => env('APP_LOCATION_LATITUDE', '51.341158'),
-        'longitude' => env('APP_LOCATION_LONGITUDE', '-0.736321'),
+        'latitude' => env('APP_LOCATION_LATITUDE', '51.5074'),
+        'longitude' => env('APP_LOCATION_LONGITUDE', '-0.1278'),
+        'weather_station_id' => env('APP_WEATHER_STATION_ID', 'dce3c7e8-60c6-ed11-9ac4-201642ba4e0a'),
     ],
 
     'features' => [

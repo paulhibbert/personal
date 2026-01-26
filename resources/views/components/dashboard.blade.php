@@ -24,6 +24,15 @@ new class extends Component
         return $result->output();
     }
 
+    public function getCommitList(): string
+    {
+        $result = Process::run('git log -n 5 --pretty=format:"%s (%cr)"');
+        if ($result->failed()) {
+            return 'Unable to retrieve commit list.';
+        }   
+        return $result->output();
+    }
+
     public function documents(): Collection
     {
         $docs = [];
@@ -105,19 +114,21 @@ new class extends Component
         </div>
     </div>
     <div class="grid auto-rows-min gap-4 md:grid-cols-2">
-        <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
                 @island(defer:true)
                     @placeholder
                         <span><x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" /></span>
                     @endplaceholder
                     <span>
-                        <h2 class="m-4 text-lg font-medium">Last Commit Summary</h2>
+                        <h2 class="ms-4 mt-4 text-lg font-medium">Last Commit Summary</h2>
                         <pre class="whitespace-pre-wrap p-4 text-sm">{{ $this->lastCommitContent() }}</pre>
+                        <h2 class="ms-4 mt-4 text-lg font-medium">Most recent commits</h2>
+                        <pre class="whitespace-pre-wrap p-4 text-sm">{{ $this->getCommitList() }}</pre>
                     </span>
                 @endisland
         </div>
         <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <span><x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" /></span>
+            <livewire:weather-data defer/>
         </div>
     </div>
 </div>
