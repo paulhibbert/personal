@@ -10,6 +10,9 @@ name('demos.index');
 
     <x:slot:menu>
         <flux:sidebar.group :heading="__('Pre 2020')" class="grid">
+            <flux:sidebar.item icon="tag" href="/demos/calc" target="demoFrame">
+                {{ 'Vue2 Calc' }}
+            </flux:sidebar.item>
             <flux:sidebar.item icon="tag" href="/demos/bees" target="demoFrame">
                 {{ 'Bees' }}
             </flux:sidebar.item>
