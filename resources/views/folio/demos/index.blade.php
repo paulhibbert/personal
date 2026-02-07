@@ -16,6 +16,9 @@ name('demos.index');
             <flux:sidebar.item icon="tag" href="/demos/todo" target="demoFrame">
                 {{ 'Vue2 Todo' }}
             </flux:sidebar.item>
+            <flux:sidebar.item icon="tag" href="/demos/sudoku" target="demoFrame">
+                {{ 'Vue2 Sudoku' }}
+            </flux:sidebar.item>
             <flux:sidebar.item icon="tag" href="/demos/bees" target="demoFrame">
                 {{ 'Bees' }}
             </flux:sidebar.item>
