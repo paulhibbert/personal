@@ -43,6 +43,11 @@ name('demos.index');
                 {{ 'Weather Demo' }}
             </flux:sidebar.item>
         </flux:sidebar.group>
+        <flux:sidebar.group :heading="__('Modern Vue')" class="grid">
+            <flux:sidebar.item icon="tag" href="/demos/sudoku-demo" target="demoFrame">
+                {{ 'Sudoku Demo' }}
+            </flux:sidebar.item>
+        </flux:sidebar.group>
     </x:slot>
 
     <flux:main>
