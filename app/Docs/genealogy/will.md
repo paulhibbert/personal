@@ -1,0 +1,54 @@
+# Extracts from the Will of Thomas Stopford of Audenshaw 1766-1834
+
+A probate copy of the will of Thomas Stopford is held by the Lancashire Record Office, under reference DDX 571/1. The original will is seven pages long and seems to have been written by a lawyer who was determined to use at least seven times as many words as necessary. I have omitted vast amounts of this and focused on the main provisions and names.
+
+> This is the last will and testament of me Thomas Stopford the Elder of Audenshaw in the parish of Ashton-under-lyne in the county of Lancaster, Victualler.
+...
+I give and devise unto my dear wife Sally Stopford and her assigns for and during the term of her natural life one annuity or clear yearly rent charge of thirty one pounds and four shillings to be issuing and payable (clear of Land Tax and all other deductions whatsoever) out of all that my freehold messuage or dwelling house called or known by the name of "The Beaver", stable, garden, outbuildings and two closes of meadow and pasture land to the same belonging or therewith occupied situate lying and being in Audenshaw aforesaid and now in my own occupation, the said annuity to be paid by equal portions of the fifth day of January, the fifth day of April, the fifth day of July, and the fifth day of October in every year, and the first portion thereof to be paid on such of those days as shall first happen next after my decease.
+...
+And I hereby order and direct and it is my will and mind that my said wife Sally shall and may occupy and enjoy for and during the term of her natural life and without paying any rent for the same all that my freehold messuage and dwelling house with the appurtenances situate and being in Audenshaw aforesaid and now in the possession of William Prestwich as tenant thereof
+....
+I give devise and bequeath the said heriditaments and premises hereinbefore described and mentioned to be in the occupation of myself and the said William Prestwich...
+
+He then charges the executors - his sons Charles and Ralph and his friend William Bentley of Audenshaw - to ensure that they retain sufficient funds to renew 
+
+> the two several leases of the freehold messuages or dwelling houses and outbuildings situate at Audenshaw aforesaid and the closes fields or parcels of land to the same belonging or therewith occupied now in the occupation of Richard Butterworth, Thomas Longden, John Pownall and Joseph Harrod and held by me for lives under the Earl of Stamford and Warrington
+...
+shall during the natural life of my said wife .. pay or cause to be paid to the Society or Company called the Pelican Assurance Company the several payments which shall or may become due or be accustomed to be paid for and in respect of the Policy of Assurance whereby the sum of Four Hundred Pounds is assured payable upon the decease of Thomas Broadbent of Hyde...
+
+There follows an unconscionably long sentence or two setting out that after his wife's death, everything can be divided up between his then surviving children or their heirs. The children are listed as:
+
+> my said sons Ralph and Charles and my other children, Thomas, Mary the wife of Jonathan Howard, Joshua, John, and William
+
+In the case of his son Thomas, however, his father declares that:
+
+> in case my son Thomas (who is abroad and has not been heard of for several years) shall not return to England within ten year next after my decease the said devises and bequests of the rents interests and monies before mentioned so made to him and his issue as aforesaid and the estate and interest so given to him and them therein shall cease and be void to all intents and purposes as if the same had not been mentioned in this my will and the same rents interests and monies designed for the benefit of my said son Thomas and his issue as aforesaid shall be added to and go in augmentation of the share or shares of such of my said other children as at the expiration of the said ten years shall be living...
+> I do hereby declare my mind and will to be that in case my said son Joshua (for whom I am surety for several sums of money amounting together to about one hundred pounds) shall not have repaid and satisfied such said several sums of money at the time of my decease I direct my trustees or trustee for the time being to deduct double the amount of such debts out of and from the rents interests and monies hereinbefore given devised and bequeathed to him and his issue as aforesaid and to retain the same until he my said son Joshua shall have wholly repaid the same.
+...
+And lastly I appoint the said Ralph Stopford and Charles Stopford and William Bentley executors of this my last will and testament. And I hereby revoke all former and other wills by me at any time heretofore made. In witness whereof I have to this my last will and testament written on seven sheets of paper set my hand and seal (viz to every of the six preceding sheets my hand and to this seventh and last sheet my hand and seal) the first day of April in the year of our Lord One Thousand Eight Hundred and Twenty Seven.
+
+The witnesses appear to be Kitty Byrom, William Batty, and John Gregson.
+
+Ralph Stopford was sworn in as executor on 2 November 1835. He swore an oath that the value of the estate was under £450 and certified that Thomas Stopford had died on the 28 November 1834. Probate was given on 2 December 1835. Charles Stopford seems to have been sworn in on 15 November 1837 in Bristol, where he was hat manufacturer, and had this notarised on 18 November 1837. William Bentley appears to have renounced the executorship and appointed Robert Maddock of Chester as his "proctor".
+
+Thomas Stopford was buried at St Michael's Church, Ashton-under-lyne, on 4 December 1834. His wife Sally (nee Broadbent) whom he had married in the same church on 15 March 1793, was herself also buried there on the 10 November 1848 at the reported age of 86.
+
+There is no indication that his eldest son Thomas who was baptised in the December of 1793 ever returned to England nor any evidence so far of where he went or why (the army is an obvious option).
+
+He was survived by most if not all of his other children. Ralph Stopford (1800-1885) seems to have retired from hatting to become a farmer in later years. Charles Stopford (1803-1875) became a very successful hat manufacturer in Bristol. Joshua Stopford (b. 1799) certainly survived him and suffered a long period of debt and a spell of imprisonment following his 1830 bankruptcy, but his whereabouts and the date of his death are more problematic. His daughter Mary (1795-1876) and her husband Jonathan Howard took over occupation of the Beaver Inn and after her husband's death she continued this living for some time at least (she is still there in the 1861 and 1871 censuses) possibly until her death. William (b. 1805) was certainly alive in 1837, but may have died in that year or 1838. John Stopford (b. 1801) was the second child of that name but may not have survived his father (possibly died in 1831).
+
+Thomas clearly owned or leased a number of plots in Audenshaw in addition to the Beaver which his wife Sally occupied after this death followed by his daughter Mary. He mentions William Prestwich as the occupier of one freehold property and there is in the 1841 census a William Prestwich, hatter, living in Guide Lane, Hooley Hill. There is also a William Prestwich, silk weaver, occupying a plot at Cross Gate in Audenshaw.
+
+There is mention of a plot near Guide Bridge in Audenshaw in an 1845 edition of the London Gazette which was to be swallowed up by a railway extension "belonging to the right Honourable the Earl of Stamford and Warrington, Sally Stopford, Ralph Stopford, Charles Stopford, Jonathan Howard and Mary his wife". This appears to be one of the properties referred to in the will of 1827 and also seems to confirm the demise of William and John, the assumption that Thomas the younger had not returned to England, and also the total sale of all interests in Audenshaw by the bankrupt Joshua.
+
+An elderly Richard Butterworth (65) (one of the tenants listed in the will) was living at a property on North Street in Audenshaw in 1841 next door to Sally Stopford and the Beaver, which seems to indicate that at least one of the properties held by Thomas "for lives" was also on North Street. In 1841 the remaining Pownalls all lived on Guide Lane in Hooley Hill, as did a Joseph Herrod.
+
+There seems little doubt that Thomas Stopford (1766-1834) had property interest on Guide Lane in Hooley Hill as well as Guide Bridge, and it seems likely to me that he had inherited these interests from his father, also Thomas Stopford who at burial on 3 May 1793 was described as "of Hooley Hill" in the parish register. These properties would have been held under a lease for three lives, between the property owner, in this case the Earl of Stamford and Warrington, George Harry Grey (1765-1845).
+
+The sale in 1837 by Joshua Stopford of 2/5 interest in the estate is somewhat clearer than the wording in the will itself: "The property in this lot consists mostly of freehold land, buildings, and chief rents, situate in Audenshaw aforesaid. There are also two lifehold estates in Audenshaw, and a moiety of the Hopkin’s estate, near Ashton-under-Lyne aforesaid, altogether yielding an annual rental of about £155, subject of the payment of an annuity £31. 10s. 0d. to Sally Stopford, the widow of the said Thomas Stopford, and mother of the said Joshua Stopford, aged 75 years, or thereabouts, and to her occupation of a house for life not included in the above rent of £155."
+
+It is reported elsewhere (see earlier entry) that the Reverend Joshua Stopford (1635-1675) of Audenshaw came from a family somewhat dependent on George Booth for their land holdings. George Booth, later 1st Baron Delamer, who married the daughter of the Earl of Stamford, whose son was the first Earl of Warrington. It is pure speculation but perhaps these plots of land in Hooley Hill which Thomas Stopford mentions in his will had come down to the Earls of Stamford and Warrington from the Booths.
+
+I wanted just to make a comment or two on the date of the will in 1827. His son Joshua had married on 19 March 1827 to Sarah Bowker and Thomas made his will on 1 April 1827 - perhaps only a coincidence, but given the provisions in the will concerning Joshua's debts, perhaps deliberate.
+
+How long had Thomas Stopford been at the Beaver? In 1821 William Stopford was listed as the victualler of the Beaver but by 1825 Thomas has taken over. There does not seem to have been a death of a William Stopford between 1821 and 1825 so the relationship is unclear. A William Stopford is listed in 1832 as the victualler of the Blue Pig Inn in Audenshaw, but whether this is the same man or not is also unknown.

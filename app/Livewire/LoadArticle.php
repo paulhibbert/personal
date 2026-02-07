@@ -2,16 +2,18 @@
 
 namespace App\Livewire;
 
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use League\CommonMark\Extension\Attributes\AttributesExtension;
-use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
-use League\CommonMark\Extension\CommonMark\Node\Block\ListBlock;
-use League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension;
-use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
-use Livewire\Attributes\On;
 use Livewire\Component;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
+use Livewire\Attributes\On;
+use Illuminate\Support\Facades\Storage;
+use League\CommonMark\Node\Block\Paragraph;
+use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
+use League\CommonMark\Extension\Attributes\AttributesExtension;
+use League\CommonMark\Extension\CommonMark\Node\Block\ListBlock;
+use League\CommonMark\Extension\CommonMark\Node\Block\BlockQuote;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
+use League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension;
 
 /**
  * This is a Livewire component that displays a random article from the 'docs' storage disk.
@@ -52,7 +54,7 @@ class LoadArticle extends Component
         $files = Storage::disk('docs')->allFiles();
         $config = [
             'external_link' => [
-                'internal_hosts' => 'www.example.com', // TODO: change to your domain
+                'internal_hosts' => 'www.example.com',
                 'open_in_new_window' => true,
                 'html_class' => 'underline text-blue-600 hover:text-blue-800 visited:text-purple-600',
                 'nofollow' => '',
@@ -71,6 +73,12 @@ class LoadArticle extends Component
                 ],
                 ListBlock::class => [
                     'class' => 'mt-4',
+                ],
+                BlockQuote::class => [
+                    'class' => 'border-l-4 border-gray-300 pl-4 italic text-gray-600 mb-2 mt-2',
+                ],
+                Paragraph::class => [
+                    'class' => 'mb-2 text-justify',
                 ],
             ],
         ];
