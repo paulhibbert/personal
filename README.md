@@ -165,3 +165,15 @@ public function render()
 ```
 
 - rendering the markdown as html is done using [Commonmark](https://github.com/thephpleague/commonmark) but entirely via the inbuilt Laravel `Str::markdown()` method. At the moment the configuration passed into the markdown method is a WORK IN PROGRESS and adds tailwind classes for (some) headings, external links, lists, blockquotes, and standard paragraphs.
+
+Commonmark takes a fenced code block and wraps it with a `<pre>` element, any classes passed into the FencedCode class as configuration are applied to the code element and so are ignored by the browser (believe this element and its attributes are probably in place for front end javaScript to intercept).
+
+```php
+return new HtmlElement(
+    'pre',
+    [],
+    new HtmlElement('code', $attrs->export(), Xml::escape($node->getLiteral()))
+);
+```
+
+For the moment I have added some basic css styling to the pre element.
