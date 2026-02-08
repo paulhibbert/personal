@@ -28,7 +28,10 @@
                 clues: [
 <?php
 $fname = storage_path('app/private/sudoku.txt');
-$myfile = fopen($fname, "r");
+$myfile = false;
+if (file_exists($fname)) {
+    $myfile = fopen($fname, "r");
+}
 if ($myfile) {
     $buffer = fgets($myfile , 164);                         //first one is different length, missing opening [
     $random_sudoku = mt_rand (1,999999);                    //there are a million sudokus

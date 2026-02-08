@@ -7,6 +7,9 @@ class FetchSudoku
     public function fetch(): array
     {
         $fileName = storage_path('app/private/sudoku.txt');
+        if (!file_exists($fileName)) {
+            return [];
+        }
         $sudokuFile = fopen($fileName, 'r');
         if ($sudokuFile === false) {
             return [];
