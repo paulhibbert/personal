@@ -95,7 +95,12 @@ Now the new blade file is a single-file component and can also use new features 
 
 Obviously not going to be a full blown CMS but how far can we get?
 
-- create a Docs folder under the app directory
+- create a Docs folder under the app directory to store markdown files
+
+  - [simple features package](https://github.com/paulhibbert/personal/blob/main/app/Docs/code/features.md)
+  - [some links](https://github.com/paulhibbert/personal/blob/main/app/Docs/learning/french.md) to French language learning resources
+  - [Extracts from the Will](https://github.com/paulhibbert/personal/blob/main/app/Docs/genealogy/will.md) of Thomas Stopford of Audenshaw 1766-1834
+
 - map a Storage disk to this directory so any content can be found programmatically
 
 ```php
