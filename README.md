@@ -131,7 +131,7 @@ Obviously not going to be a full blown CMS but how far can we get?
 
 - the menu is initialised with JavaScript and emits a livewire event when clicked which requires absolutely no scaffolding to process on the backend other than a single PHP annotation on the public method in the Component class.
 
-```JS
+```javascript
 function init() {
     const topicLinks = document.querySelectorAll('.topic_link');
     topicLinks.forEach(function(link) {

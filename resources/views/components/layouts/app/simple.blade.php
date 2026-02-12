@@ -3,13 +3,80 @@
     <head>
         @include('partials.head')
         <style>
+            table {
+                border-collapse: collapse;
+                margin-bottom: 1em;
+                } 
+                table th, table td { 
+                    border: 1px solid #ddd; 
+                    padding: 0.5em;
+            }
             pre {
                 margin-top: 1em;
                 margin-bottom: 1em;
-                background: aliceblue;
+                background: ghostwhite;
                 border-radius: 0.5em;
                 padding: 0.5em;
+                code {
+                    color: #1f2328;
+                }
             }
+            .hl-keyword {
+                color: #cf222e;
+            }
+
+            .hl-property {
+                color: #8250df;
+            }
+
+            .hl-attribute {
+                font-style: italic;
+            }
+
+            .hl-injection {
+                color: forestgreen;
+            }
+
+            .hl-type {
+                color: #EA4334;
+            }
+
+            .hl-generic {
+                color: #9d3af6;
+            }
+
+            .hl-value {
+                color: #0a3069;
+            }
+
+            .hl-literal {
+                color: #0a3069;
+            }
+
+            .hl-number {
+                color: #0a3069;
+            }
+
+            .hl-variable {
+                color: #953800;
+            }
+
+            .hl-comment {
+                color: #6e7781;
+            }
+
+            .hl-blur {
+                filter: blur(2px);
+            }
+
+            .hl-strong {
+                font-weight: bold;
+            }
+
+            .hl-em {
+                font-style: italic;
+            }
+
         </style>
     </head>
     <body class="min-h-screen bg-white dark:bg-zinc-800">

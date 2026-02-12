@@ -2,18 +2,20 @@
 
 namespace App\Livewire;
 
-use Livewire\Component;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
-use Livewire\Attributes\On;
 use Illuminate\Support\Facades\Storage;
-use League\CommonMark\Node\Block\Paragraph;
-use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
+use Illuminate\Support\Str;
 use League\CommonMark\Extension\Attributes\AttributesExtension;
-use League\CommonMark\Extension\CommonMark\Node\Block\ListBlock;
 use League\CommonMark\Extension\CommonMark\Node\Block\BlockQuote;
-use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
+use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
+use League\CommonMark\Extension\CommonMark\Node\Block\ListBlock;
 use League\CommonMark\Extension\DefaultAttributes\DefaultAttributesExtension;
+use League\CommonMark\Extension\ExternalLink\ExternalLinkExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+use League\CommonMark\Node\Block\Paragraph;
+use Livewire\Attributes\On;
+use Livewire\Component;
+use Tempest\Highlight\CommonMark\HighlightExtension;
 
 /**
  * This is a Livewire component that displays a random article from the 'docs' storage disk.
@@ -85,12 +87,15 @@ class LoadArticle extends Component
         $attributesExtension = new AttributesExtension;
         $externalLinkExtension = new ExternalLinkExtension;
         $defaultAttributesExtension = new DefaultAttributesExtension;
+        $codeHighlightExtension = new HighlightExtension;
+        $tableExtension = new TableExtension;
+        $extensions = [$attributesExtension, $externalLinkExtension, $defaultAttributesExtension, $codeHighlightExtension, $tableExtension];
         if (count($files) > 0) {
             $path = empty($this->articlePath) ? Arr::random($files) : $this->articlePath;
             $content = Storage::disk('docs')->get($path);
             $callable = fn () => 'Error loading article';
 
-            return rescue(fn () => Str::markdown($content, $config, [$attributesExtension, $externalLinkExtension, $defaultAttributesExtension]), $callable, false);
+            return rescue(fn () => Str::markdown($content, $config, $extensions), $callable, false);
         }
 
         return '';
