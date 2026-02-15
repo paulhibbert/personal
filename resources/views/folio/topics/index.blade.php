@@ -11,7 +11,7 @@ name('topics.index');
         <flux:sidebar.nav>
             <flux:sidebar.group :heading="__('Topics')" class="grid">
                 @foreach (App\Models\Topic::all() as $topic)
-                    <flux:sidebar.group heading="{{ $topic->name }}" :expandable="true" :expanded="true">
+                    <flux:sidebar.group heading="{{ $topic->name }}" :expandable="true" :expanded="false">
                         @foreach (App\Models\Topic::getArticlesForTopic($topic->href) as $article)
                             <flux:sidebar.item icon="tag" href="#"
                                 class="topic_link topic_{{ $topic->href }} article_{{ strtolower($article) }}">

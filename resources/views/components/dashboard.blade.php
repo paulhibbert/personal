@@ -6,14 +6,20 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Process;
 use App\Models\Topic;
 use Illuminate\Support\Str;
+use Laravel\Roster\Roster;
+use Laravel\Roster\Packages;
 
 new class extends Component
 {
     public Collection $documents;
 
+    public array $packages;
+
     public function mount()
     {
         $this->documents = $this->documents();
+        $roster = Roster::scan(base_path());
+        $this->packages = $roster->packages()->mapWithKeys(fn ($package) => [$package->rawName() => $package->version()])->all();
     }
 
     public function lastCommitContent(): string
@@ -122,7 +128,7 @@ new class extends Component
             @endisland
         </div>
     </div>
-    <div class="grid auto-rows-min gap-4 md:grid-cols-2">
+    <div class="grid auto-rows-min gap-4 md:grid-cols-3">
         <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
                 @island(defer:true)
                     @placeholder
@@ -135,6 +141,16 @@ new class extends Component
                         <pre class="whitespace-pre-wrap p-4 text-sm">{{ $this->getCommitList() }}</pre>
                     </span>
                 @endisland
+        </div>
+        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+            <h2 class="m-4 text-lg font-medium">Packages Installed</h2>
+            <ul>
+                @foreach($packages as $name => $version)
+                    <li class="ms-4">
+                        {{ $name }} ({{ $version}})
+                    </li>
+                @endforeach
+            </ul>
         </div>
         <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
             <livewire:weather-data defer/>

@@ -1,7 +1,4 @@
----
-title: Extending the Spatie Activity Log package
-permalink: /articles/activity-log
----
+# Extending the Spatie Activity Log package
 
 Out of the box the package enables events to be recorded as they happen to a model and its very easy to use, however in this case most of these models were children of an overarching entity and it was important to be able to easily aggregate this data (noting that as with many event log cases the current state of those models and their relations may have changed since the event so unless the relation is recorded in the activity log table when the event occurs it may not be possible to re-associate it with a parent).
 

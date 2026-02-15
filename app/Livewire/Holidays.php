@@ -22,9 +22,9 @@ class Holidays extends Component
     {
         try {
             $holidays = Cache::remember('holidays', now()->addDays(7), function () {
-                return collect(Http::get('https://www.gov.uk/bank-holidays.json')->json()['england-and-wales']['events']);
+                return Http::get('https://www.gov.uk/bank-holidays.json')->json()['england-and-wales']['events'];
             });
-            $nextHoliday = $holidays->first(fn ($event) => strtotime($event['date']) > now()->timestamp);
+            $nextHoliday = collect($holidays)->first(fn ($event) => strtotime($event['date']) > now()->timestamp);
             if ($nextHoliday) {
                 $holidayDate = CarbonImmutable::parse($nextHoliday['date']);
                 $daysUntil = (int) now()->diffInDays($holidayDate);
