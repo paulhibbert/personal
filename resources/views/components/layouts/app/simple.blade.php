@@ -19,6 +19,10 @@
                 padding: 0.5em;
                 color: Canvas;
             }
+            li {
+                list-style-type: disc;
+                margin-bottom: 0.5em;
+            }
             .hl-keyword {
                 color: springgreen;
             }
