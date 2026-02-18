@@ -61,7 +61,6 @@
             padding-top: 0.5em;
             padding-bottom: 0.5em;
             align-self: center;
-            cursor: not-allowed;
         }
 
         .collapsible-article input {
@@ -70,7 +69,6 @@
             grid-area: 1/2/1/2;
             padding-right: 1em;
             align-self: center;
-            cursor: help;
         }
 
         .collapsible-article span {

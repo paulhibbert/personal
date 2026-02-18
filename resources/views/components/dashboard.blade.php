@@ -83,7 +83,7 @@ new class extends Component
 
 <div class="flex h-full w-full flex-1 flex-col gap-4 rounded-xl">
     <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative aspect-video overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-700">
             <h2 class="m-4 text-lg font-medium">Topics Overview</h2>
             <ul>
                 @foreach(App\Models\Topic::all() as $topic)
@@ -93,7 +93,7 @@ new class extends Component
                 @endforeach
             </ul>
         </div>
-        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative aspect-video overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-700">
             @island(defer:true)
                 @placeholder
                     <span><x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" /></span>
@@ -110,7 +110,7 @@ new class extends Component
                 </span>
             @endisland
         </div>
-        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative aspect-video overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-700">
             @island(defer:true)
                 @placeholder
                     <span><x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" /></span>
@@ -129,7 +129,7 @@ new class extends Component
         </div>
     </div>
     <div class="grid auto-rows-min gap-4 md:grid-cols-3">
-        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative aspect-video overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-700">
                 @island(defer:true)
                     @placeholder
                         <span><x-placeholder-pattern class="absolute inset-0 size-full stroke-gray-900/20 dark:stroke-neutral-100/20" /></span>
@@ -142,7 +142,7 @@ new class extends Component
                     </span>
                 @endisland
         </div>
-        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative aspect-video overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-700">
             <h2 class="m-4 text-lg font-medium">Packages Installed</h2>
             <ul>
                 @foreach($packages as $name => $version)
@@ -152,7 +152,7 @@ new class extends Component
                 @endforeach
             </ul>
         </div>
-        <div class="relative aspect-video overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
+        <div class="relative aspect-video overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-700">
             <livewire:weather-data defer/>
         </div>
     </div>

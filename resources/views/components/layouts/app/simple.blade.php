@@ -14,19 +14,17 @@
             pre {
                 margin-top: 1em;
                 margin-bottom: 1em;
-                background: ghostwhite;
+                background: CanvasText;
                 border-radius: 0.5em;
                 padding: 0.5em;
-                code {
-                    color: #1f2328;
-                }
+                color: Canvas;
             }
             .hl-keyword {
-                color: #cf222e;
+                color: springgreen;
             }
 
             .hl-property {
-                color: #8250df;
+                color: #a47af2;
             }
 
             .hl-attribute {
@@ -34,7 +32,7 @@
             }
 
             .hl-injection {
-                color: forestgreen;
+                color: #41f941;
             }
 
             .hl-type {
@@ -46,19 +44,15 @@
             }
 
             .hl-value {
-                color: #0a3069;
+                color: #1e6de3;
             }
 
-            .hl-literal {
-                color: #0a3069;
-            }
-
-            .hl-number {
-                color: #0a3069;
+            .hl-literal .hl-number {
+                color: #1254b8;
             }
 
             .hl-variable {
-                color: #953800;
+                color: #ff6000;
             }
 
             .hl-comment {
