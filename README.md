@@ -6,7 +6,7 @@ Naturally there is some hacking around with the starter kit and it starts with t
 
 ### Adding inline Livewire components
 
-As long as the blade file has `@livewireStyles` and `@livewireScripts` adding an inline livewire component is as simple as dropping `<livewire:weather defer/>` into the layout. This looks for a component at `App/Livewire/Weather.php`. An inline component can return just text if its used to render the content of an element, so somewhat like `@inject` blade directive. Or it can return html or even Blade content.
+As long as the blade file has `@livewireStyles` and `@livewireScripts` adding an inline livewire component is as simple as dropping `<livewire:weather-summary defer/>` into the layout. This looks for a component at `App/Livewire/Weather.php`. An inline component can return just text if its used to render the content of an element, so somewhat like `@inject` blade directive. Or it can return html or even Blade content.
 
 ```php
 <?php

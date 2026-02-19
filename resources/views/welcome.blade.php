@@ -11,8 +11,8 @@
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
         <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+        <!-- <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" /> -->
 
         <!-- Styles -->
         <style>
@@ -69,9 +69,9 @@
                 <div class="text-[13px] leading-[20px] flex-1 p-6 pb-12 lg:p-20 bg-white dark:bg-[#161615] dark:text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_rgba(26,26,0,0.16)] dark:shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-es-lg rounded-ee-lg lg:rounded-ss-lg lg:rounded-ee-none">
                     <h1 class="text-lg mb-4 font-bold">Surrey, GB {{ now()->toDateTimeString() }}</h1>
                     <livewire:sunset defer/>
-                    <livewire:weather defer/>
+                    <livewire:weather-summary defer/>
                     <livewire:holidays defer/>
-                    <livewire:onthisday defer/>
+                    <livewire:this-day defer/>
                     <livewire:current-carbon defer/>
                 </div>
                 <div class="bg-[#fff2f2] dark:bg-[#1D0002] relative lg:-ms-px -mb-px lg:mb-0 rounded-t-lg lg:rounded-t-none lg:rounded-e-lg! aspect-[335/376] lg:aspect-auto w-full lg:w-[438px] shrink-0 overflow-hidden">

@@ -119,9 +119,9 @@ new class extends Component
                     <h2 class="m-4 text-lg font-medium">Inline components</h2>
                     <ul class="text-sm">
                     <li class="ms-4 me-4"><livewire:sunset defer/></li>
-                    <li class="ms-4 me-4"><livewire:weather defer/></li>
+                    <li class="ms-4 me-4"><livewire:weather-summary defer/></li>
                     <li class="ms-4 me-4"><livewire:holidays defer/></li>
-                    <li class="ms-4 me-4"><livewire:onthisday defer/></li>
+                    <li class="ms-4 me-4"><livewire:this-day defer/></li>
                     <li class="ms-4 me-4"><livewire:current-carbon defer/></li>
                     </ul>
                 </span>
@@ -153,7 +153,7 @@ new class extends Component
             </ul>
         </div>
         <div class="relative aspect-video overflow-auto rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <livewire:weather-data defer/>
+            <livewire:widgets::weather defer/>
         </div>
     </div>
 </div>

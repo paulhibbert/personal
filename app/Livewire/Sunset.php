@@ -32,7 +32,7 @@ class Sunset extends Component
                     'date' => 'today',
                 ]);
             $now = new CarbonImmutable;
-            $sunriseSunset = Cache::remember('sunset', $now->tomorrow(), fn () => Http::get($uri)->json());
+            $sunriseSunset = Cache::remember('sunset', $now->tomorrow(), fn () => Http::connectTimeout(3)->timeout(3)->get($uri)->json());
             $sunset = CarbonImmutable::parse($sunriseSunset['results']['sunset']);
             $sunsetDifference = (int) round(abs($now->diffInMinutes($sunset)), 0);
             $sunSetStatus = match (true) {
