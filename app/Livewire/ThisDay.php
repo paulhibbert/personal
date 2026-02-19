@@ -8,8 +8,9 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
+use Illuminate\Support\Facades\Http;
 
-class OnThisDay extends Component
+class ThisDay extends Component
 {
     public function render()
     {
@@ -27,7 +28,7 @@ class OnThisDay extends Component
         $dayOfMonth = $now->format('j');
         $url = "http://news.bbc.co.uk/onthisday/low/dates/stories/{$month}/{$dayOfMonth}/default.stm";
         try {
-            $onThisDayContent = Cache::remember('onthisday', $now->tomorrow(), fn () => file_get_contents($url));
+            $onThisDayContent = Cache::remember('onthisday', $now->tomorrow(), fn () => Http::connectTimeout(3)->timeout(3)->get($url)->body());
             $dom = new \DOMDocument;
             @$dom->loadHTML($onThisDayContent);
             $links = $dom->getElementsByTagName('a');

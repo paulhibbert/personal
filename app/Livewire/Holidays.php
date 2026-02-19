@@ -22,7 +22,7 @@ class Holidays extends Component
     {
         try {
             $holidays = Cache::remember('holidays', now()->addDays(7), function () {
-                return Http::get('https://www.gov.uk/bank-holidays.json')->json()['england-and-wales']['events'];
+                return Http::connectTimeout(3)->timeout(3)->get('https://www.gov.uk/bank-holidays.json')->json()['england-and-wales']['events'];
             });
             $nextHoliday = collect($holidays)->first(fn ($event) => strtotime($event['date']) > now()->timestamp);
             if ($nextHoliday) {

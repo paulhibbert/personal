@@ -21,7 +21,7 @@ class CurrentCarbon extends Component
     {
         try {
             $intensity = Cache::remember('current_carbon_intensity', now()->addMinutes(15), function () {
-                return Http::get('https://api.carbonintensity.org.uk/intensity')->json()['data'][0]['intensity'];
+                return Http::connectTimeout(3)->timeout(3)->get('https://api.carbonintensity.org.uk/intensity')->json()['data'][0]['intensity'];
             });
             $actual = $intensity['actual'] ?? 'N/A';
 

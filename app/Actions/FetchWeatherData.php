@@ -34,6 +34,6 @@ class FetchWeatherData
                 'fields' => 'DryBulbTemperature_Celsius',
             ]);
 
-        return Cache::remember('weather', now()->addMinutes(10), fn () => Http::get($uri)->json());
+        return Cache::remember('weather', now()->addMinutes(10), fn () => Http::connectTimeout(3)->timeout(3)->get($uri)->json());
     }
 }

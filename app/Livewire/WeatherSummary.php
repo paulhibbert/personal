@@ -8,7 +8,7 @@ use Illuminate\Support\Arr;
 use Livewire\Component;
 use Throwable;
 
-class Weather extends Component
+class WeatherSummary extends Component
 {
     public function render()
     {
